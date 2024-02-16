@@ -3,6 +3,5 @@ class Relationship < ApplicationRecord
   belongs_to :followed, class_name: "User"
 end
 
-#followerというのは、userテーブルに存在するイメージ
-#followedというのも、userテーブルに存在するイメージ
-#userテーブルに存在するから、class_nameでuserを指定する必要がある。
+#ここでは、userの中でフォローされる人とフォローする人が存在し、多対多の関係になる。
+#なので、relationshipテーブルを用意する。これは中間テーブルです。

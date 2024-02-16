@@ -9,8 +9,11 @@ class User < ApplicationRecord
 
 
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  #この文章は理解できる
+  #下の文章って別になくてもいいんじゃない？
   has_many :followers, through: :reverse_of_relationships, source: :follower
-
+  #結局、followersっていう名前も適当でいいって話やな
+  #肝心な中身は、relationshipsの中のfollowerって話やな
 
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
