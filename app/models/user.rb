@@ -14,16 +14,12 @@ class User < ApplicationRecord
 
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
-  #reverse_of_relationshipsは名義した物。実際の内容は、relationshipテーブルのfollowed_idを複数持ってるという意味。
-  #followesも名義した物、reverse_of_relationshipsを通じて、followerカラムを指定します。
-  #このfollowerカラムはrelationshipで定義したfollowerを意味します。
-  #何となく理解はできているけど、100%の理解ではないなって感じやな。
-  #キータとかZenの説明を読んでみたけど、100％理解しきれていない。
-  #2行目が必要な理由が説明できひんな。
-  #この2つのコードは1セットで、2行目を削除すると、成り立たない。
-  #1行目はあくまで関連付けの定義でしかない。
-  #1行目を2行目で使用するって感じみたいやな。
-  #メンターに聞いていみないと分からんな。
+
+  #解説
+  #relatonshipモデルのfollowed_idをreverse_of_relationshipsという名前で定義している。
+  #followersというのは、こちらで定義した名前。
+  #reverse_of_relationshipsを通して、relationshipモデルで定義したfollowerにアクセスする。その内容をfollowersに入れ込む。
+  #以下の2文も同様です。
 
 
 

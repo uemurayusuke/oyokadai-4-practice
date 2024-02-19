@@ -3,7 +3,7 @@ class Relationship < ApplicationRecord
   belongs_to :followed, class_name: "User"
 end
 
-#ここでは、userの中でフォローされる人とフォローする人が存在し、多対多の関係になる。
-#なので、relationshipテーブルを用意する。これは中間テーブルです。
-#本来の書き方としては、belongs_to :userとする。
-#しかし、userの中で区別をしないといけないから、followerとfollowedと名義する。しかし参照するのは、userモデルから参照しますよって話。
+#解説
+#今は流れだけ理解できればいいとの事。完全な理解は無くてもいい。
+#userモデルを参照して、followerという名前で定義している。
+#userモデルを参照して、followedという名前で定義している。
